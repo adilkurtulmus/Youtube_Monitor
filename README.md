@@ -41,3 +41,40 @@ pip install prometheus_client requests
 
     - Obtain a YouTube Data API v3 key from Google Cloud Console
     - Edit prometheus_youtube_exporter.py and update the streams list with your channels
+  
+4. Run the exporter:
+
+python prometheus_youtube_exporter.py
+
+The exporter runs on port 8001 by default. You can access metrics at http://localhost:8001
+
+Step 2: Configure Prometheus
+
+Option 1: Using prometheus.yml
+Add the following to your prometheus.yml configuration:
+
+scrape_configs:
+  - job_name: 'youtube'
+    static_configs:
+      - targets: ['localhost:8001']
+    scrape_interval: 30s
+    
+Option 2: Using File-Based Service Discovery
+Create a JSON file (e.g., youtube_monitor.json):
+
+[
+  {
+    "targets": [
+      "10.20.48.126:8001"
+    ],
+    "labels": {
+      "job": "youtube_monitor",
+      "service": "streaming"
+    }
+  }
+]
+
+
+
+
+
