@@ -7,6 +7,7 @@ YouTube Stream Monitoring Dashboard
 
 
 A comprehensive Grafana dashboard for real-time monitoring of YouTube live streams using Prometheus metrics. Track stream status, viewer counts, engagement metrics, and detect outages across multiple YouTube channels simultaneously.
+
 🌟 Features
 
 Live Stream Status Monitoring: Real-time tracking of stream status (LIVE/OFFLINE)
@@ -99,7 +100,19 @@ Engagement metrics (views, likes) are checked every 5 cycles
 Channel information (subscribers) is checked every 10 cycles
 
 📊 Available Metrics
-Metric NameTypeDescriptionyoutube_stream_statusGaugeStream status (1=LIVE, 0=OFFLINE)youtube_stream_viewersGaugeCurrent live viewer countyoutube_video_viewsGaugeTotal video view countyoutube_video_likesGaugeLike countyoutube_video_commentsGaugeComment countyoutube_channel_subscribersGaugeChannel subscriber countyoutube_engagement_rateGaugeEngagement rate (likes/views %)youtube_stream_check_count_totalCounterTotal number of checks performedyoutube_stream_error_count_totalCounterTotal number of stream errors detectedyoutube_api_errors_totalCounterTotal number of YouTube API errors
+Metric Info:
+NameTypeDescription;
+youtube_stream_statusGaugeStream status (1=LIVE, 0=OFFLINE)
+youtube_stream_viewersGaugeCurrent live viewer count
+youtube_video_viewsGaugeTotal video view count
+youtube_video_likesGaugeLike count
+youtube_video_commentsGaugeComment count
+youtube_channel_subscribersGaugeChannel subscriber count
+youtube_engagement_rateGaugeEngagement rate (likes/views %)
+youtube_stream_check_count_totalCounterTotal number of checks performed
+youtube_stream_error_count_totalCounterTotal number of stream errors detected
+youtube_api_errors_totalCounterTotal number of YouTube API errors
+
 🔍 Dashboard Panels
 Main Metrics
 
