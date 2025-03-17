@@ -99,7 +99,7 @@ Stream status is checked every cycle (default: 30 seconds)
 Engagement metrics (views, likes) are checked every 5 cycles
 Channel information (subscribers) is checked every 10 cycles
 
-📊 Available Metrics
+Available Metrics : 
 Metric Info:
 NameTypeDescription;
 youtube_stream_statusGaugeStream status (1=LIVE, 0=OFFLINE)
@@ -113,7 +113,7 @@ youtube_stream_check_count_totalCounterTotal number of checks performed
 youtube_stream_error_count_totalCounterTotal number of stream errors detected
 youtube_api_errors_totalCounterTotal number of YouTube API errors
 
-🔍 Dashboard Panels
+Dashboard Panels: 
 Main Metrics
 
 YouTube Stream Status: Current stream status (LIVE/OFFLINE)
