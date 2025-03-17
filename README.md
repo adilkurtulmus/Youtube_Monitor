@@ -116,20 +116,20 @@ NameTypeDescription;
 Dashboard Panels: 
 Main Metrics
 
-YouTube Stream Status: Current stream status (LIVE/OFFLINE)
-Outages in Last 24 Hours: Count of stream outages in the last 24 hours
-API Errors: Count of YouTube API errors in the last 24 hours
-Total Check Count: Number of checks performed
-API Error Rate: Percentage of API errors compared to total checks
-YouTube Stream Uptime: 24-hour stream uptime percentage
+- YouTube Stream Status: Current stream status (LIVE/OFFLINE)
+- Outages in Last 24 Hours: Count of stream outages in the last 24 hours
+- API Errors: Count of YouTube API errors in the last 24 hours
+- Total Check Count: Number of checks performed
+- API Error Rate: Percentage of API errors compared to total checks
+- YouTube Stream Uptime: 24-hour stream uptime percentage
 
 Viewership and Engagement
 
-YouTube Viewer Count: Real-time and historical viewer count graph
-YouTube Stream Status Timeline: Timeline of stream status changes
-Engagement Metrics: Views, likes, comments counts
-Subscriber Count: Real-time channel subscriber count
-Engagement Rate: Percentage of viewers who engaged with the stream
+- YouTube Viewer Count: Real-time and historical viewer count graph
+- YouTube Stream Status Timeline: Timeline of stream status changes
+- Engagement Metrics: Views, likes, comments counts
+- Subscriber Count: Real-time channel subscriber count
+- Engagement Rate: Percentage of viewers who engaged with the stream
 
 🐛 Troubleshooting
 Common Issues
