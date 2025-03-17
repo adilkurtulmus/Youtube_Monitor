@@ -197,11 +197,12 @@ docker build -t youtube-exporter .
 docker run -d -p 8001:8001 --name youtube-exporter youtube-exporter
 
 
-📝 Customizing the Dashboard
+## 📝 Customizing the Dashboard
+
 You can customize the dashboard to fit your needs:
 
-Add or remove panels
-Adjust thresholds for status indicators
-Create additional alerts
-Modify time ranges
-Add custom annotations for important events
+- Add or remove panels
+- Adjust thresholds for status indicators
+- Create additional alerts
+- Modify time ranges
+- Add custom annotations for important events
