@@ -1,5 +1,9 @@
 YouTube Stream Monitoring Dashboard
 
+![Screenshot_01](https://github.com/user-attachments/assets/02bdf72f-eb87-48e8-9160-b1f878544a6d)
+
+![Screenshot_02](https://github.com/user-attachments/assets/b985a0cf-8193-4c8a-9216-5b543b64510f)
+
 A comprehensive Grafana dashboard for real-time monitoring of YouTube live streams using Prometheus metrics.
 
 Features
