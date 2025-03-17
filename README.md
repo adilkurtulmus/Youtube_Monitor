@@ -31,11 +31,11 @@ prometheus_client and requests Python libraries
 Step 1: Set Up the Prometheus YouTube Exporter
 
 Clone this repository:
-bashCopygit clone https://github.com/yourusername/youtube-stream-monitoring.git
+git clone https://github.com/yourusername/youtube-stream-monitoring.git
 cd youtube-stream-monitoring
 
 Install required Python dependencies:
-bashCopypip install prometheus_client requests
+pip install prometheus_client requests
 
 Configure your YouTube API key and channels:
 
@@ -44,7 +44,7 @@ Edit prometheus_youtube_exporter.py and update the streams list with your channe
 
 
 Run the exporter:
-bashCopypython prometheus_youtube_exporter.py
+python prometheus_youtube_exporter.py
 The exporter runs on port 8001 by default. You can access metrics at http://localhost:8001
 
 Step 2: Configure Prometheus
