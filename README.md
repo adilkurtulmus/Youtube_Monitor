@@ -1,5 +1,10 @@
 YouTube Stream Monitoring Dashboard
 
+![image](https://github.com/user-attachments/assets/3d8577e7-8a9a-4aa1-9754-83bae8319ff7)
+![image](https://github.com/user-attachments/assets/9bad392c-262b-4818-bf1a-6aaac360a02a)
+
+
+
 
 A comprehensive Grafana dashboard for real-time monitoring of YouTube live streams using Prometheus metrics. Track stream status, viewer counts, engagement metrics, and detect outages across multiple YouTube channels simultaneously.
 🌟 Features
