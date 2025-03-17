@@ -86,6 +86,8 @@ scrape_configs:
 
 
 Restart Prometheus to apply the changes.
+
+# 
 Step 3: Import the Grafana Dashboard
 There are two ways to import the dashboard:
 Option 1: Import via Grafana.com
