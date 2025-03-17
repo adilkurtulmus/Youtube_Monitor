@@ -409,30 +409,21 @@ def main():
     # Stream settings to monitor
     streams = [
         {
-            'name': 'CNN_Turk_Master',
-            'channel_name': 'CNN_Turk_Master',
-            'channel_id': 'UCV6zcRug6Hqp1UX_FdyUeBg',
-            'video_id': 'VXMR3YQ7W3s',
-            'api_key': 'AIzaSyBG2Y_RBYq9EzmKL1LWdlDMdEH2f2X_O-U',
+            'name': 'TEST-1',
+            'channel_name': 'TEST_Master',
+            'channel_id': 'XXXXXXXXXXXXXXXXXXXXXXXXXXX',
+            'video_id': 'XXXXXXXXXXX',
+            'api_key': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_O-U',
             'environment': 'Production'
         },
         {
-            'name': 'CNN_Turk_Backup',
-            'channel_name': 'CNN_Turk_Backup',
-            'channel_id': 'UCV6zcRug6Hqp1UX_FdyUeBg',
-            'video_id': 'gMWls8NtaNo',
-            'api_key': 'AIzaSyBG2Y_RBYq9EzmKL1LWdlDMdEH2f2X_O-U',
+            'name': 'TEST-2',
+            'channel_name': 'TEST_Backup',
+            'channel_id': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+            'video_id': 'XXXXXXXXXXXX',
+            'api_key': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX_O-U',
             'environment': 'Production'
         }
-        #{
-        #    'name': 'OzgurTv',
-        #    'channel_name': 'OzgurTv',
-        #    'channel_id': 'UCQLm8jt5WJDbBaChxBm-7zw',
-        #    'video_id': '6DKwNwRUqa8',
-        #    'api_key': 'AIzaSyCZzHHoMZeBIxV5Y0w_3aTQrMFARlbg7w4',
-        #    'environment': 'Production'
-        #}
-        # You can add more streams...
     ]
 
     print(f"Monitoring a total of {len(streams)} streams...")
