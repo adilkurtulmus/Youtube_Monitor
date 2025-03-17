@@ -50,21 +50,17 @@ The exporter runs on port 8001 by default. You can access metrics at http://loca
 Step 2: Configure Prometheus
 Add the following to your prometheus.yml configuration:
 
-## Prometheus Configuration
-
-### Option 1: Using prometheus.yml
-
-Add the following to your `prometheus.yml` configuration:
-
-```yaml
-scrape_configs:
+Prometheus Configuration
+Option 1: Using prometheus.yml
+Add the following to your prometheus.yml configuration:
+yamlCopyscrape_configs:
   - job_name: 'youtube'
     static_configs:
       - targets: ['localhost:8001']
     scrape_interval: 30s
-
-### Option 2: Using File-Based Service Discovery
-[
+Option 2: Using File-Based Service Discovery
+Create a JSON file (e.g., youtube_monitor.json):
+jsonCopy[
   {
     "targets": [
       "10.20.48.126:8001"
@@ -75,20 +71,15 @@ scrape_configs:
     }
   }
 ]
-
 Then reference it in your Prometheus configuration:
-scrape_configs:
+yamlCopyscrape_configs:
   - job_name: 'youtube'
     file_sd_configs:
       - files:
         - 'youtube_monitor.json'
     scrape_interval: 30s
-
-
 Restart Prometheus to apply the changes.
-
-# 
-Step 3: Import the Grafana Dashboard
+Import the Grafana Dashboard
 There are two ways to import the dashboard:
 Option 1: Import via Grafana.com
 
@@ -104,12 +95,10 @@ Click "Upload JSON file" and select youtube_stream_monitoring_dashboard.json fro
 Select your Prometheus data source
 Click "Import"
 
-⚙️ Configuration
+Configuration
 Exporter Configuration
-The exporter is configured through the streams list in 
-
-prometheus_youtube_exporter.py:
-
+The exporter is configured through the streams list in prometheus_youtube_exporter.py:
+pythonCopystreams = [
     {
         'name': 'Main_Channel',        # A unique name for the stream
         'channel_name': 'Channel Name', # Display name
@@ -119,8 +108,7 @@ prometheus_youtube_exporter.py:
         'environment': 'Production'    # Environment tag
     },
     # Add more streams as needed
-
-
+]
 Metrics Check Frequency
 You can adjust how often metrics are checked by modifying the interval parameter:
 pythonCopy# Change the interval from 30 seconds to your preferred value (in seconds)
@@ -132,39 +120,27 @@ Stream status is checked every cycle (default: 30 seconds)
 Engagement metrics (views, likes) are checked every 5 cycles
 Channel information (subscribers) is checked every 10 cycles
 
-Available Metrics: 
-Metric Info:
-NameTypeDescription;
-- youtube_stream_statusGaugeStream status (1=LIVE, 0=OFFLINE)
-- youtube_stream_viewersGaugeCurrent live viewer count
-- youtube_video_viewsGaugeTotal video view count
-- youtube_video_likesGaugeLike count
-- youtube_video_commentsGaugeComment count
-- youtube_channel_subscribersGaugeChannel subscriber count
-- youtube_engagement_rateGaugeEngagement rate (likes/views %)
-- youtube_stream_check_count_totalCounterTotal number of checks performed
-- youtube_stream_error_count_totalCounterTotal number of stream errors detected
-- youtube_api_errors_totalCounterTotal number of YouTube API errors
-
-Dashboard Panels: 
+Available Metrics
+Metric NameTypeDescriptionyoutube_stream_statusGaugeStream status (1=LIVE, 0=OFFLINE)youtube_stream_viewersGaugeCurrent live viewer countyoutube_video_viewsGaugeTotal video view countyoutube_video_likesGaugeLike countyoutube_video_commentsGaugeComment countyoutube_channel_subscribersGaugeChannel subscriber countyoutube_engagement_rateGaugeEngagement rate (likes/views %)youtube_stream_check_count_totalCounterTotal number of checks performedyoutube_stream_error_count_totalCounterTotal number of stream errors detectedyoutube_api_errors_totalCounterTotal number of YouTube API errors
+Dashboard Panels
 Main Metrics
 
-- YouTube Stream Status: Current stream status (LIVE/OFFLINE)
-- Outages in Last 24 Hours: Count of stream outages in the last 24 hours
-- API Errors: Count of YouTube API errors in the last 24 hours
-- Total Check Count: Number of checks performed
-- API Error Rate: Percentage of API errors compared to total checks
-- YouTube Stream Uptime: 24-hour stream uptime percentage
+YouTube Stream Status: Current stream status (LIVE/OFFLINE)
+Outages in Last 24 Hours: Count of stream outages in the last 24 hours
+API Errors: Count of YouTube API errors in the last 24 hours
+Total Check Count: Number of checks performed
+API Error Rate: Percentage of API errors compared to total checks
+YouTube Stream Uptime: 24-hour stream uptime percentage
 
 Viewership and Engagement
 
-- YouTube Viewer Count: Real-time and historical viewer count graph
-- YouTube Stream Status Timeline: Timeline of stream status changes
-- Engagement Metrics: Views, likes, comments counts
-- Subscriber Count: Real-time channel subscriber count
-- Engagement Rate: Percentage of viewers who engaged with the stream
+YouTube Viewer Count: Real-time and historical viewer count graph
+YouTube Stream Status Timeline: Timeline of stream status changes
+Engagement Metrics: Views, likes, comments counts
+Subscriber Count: Real-time channel subscriber count
+Engagement Rate: Percentage of viewers who engaged with the stream
 
-🐛 Troubleshooting
+Troubleshooting
 Common Issues
 No Metrics Showing
 
@@ -189,16 +165,11 @@ Missing Stream Status
 Verify the video ID is correct and is a live stream
 Make sure the channel has public statistics enabled
 
-## 📌 Installation as a System Service
-
+Installation as a System Service
 For production environments, you may want to run the exporter as a system service:
-
-### Linux (systemd)
-
-Create a service file at `/etc/systemd/system/youtube-exporter.service`:
-
-```ini
-[Unit]
+Linux (systemd)
+Create a service file at /etc/systemd/system/youtube-exporter.service:
+iniCopy[Unit]
 Description=YouTube Stream Monitoring Service
 After=network.target
 Wants=network-online.target
@@ -216,26 +187,18 @@ Environment="PYTHONUNBUFFERED=1"
 
 [Install]
 WantedBy=multi-user.target
-
-
-sudo systemctl enable youtube-exporter
+Then enable and start the service:
+bashCopysudo systemctl enable youtube-exporter
 sudo systemctl start youtube-exporter
-
-
-## 📌 Docker Installation
-
+Docker Installation
 You can also run the exporter in Docker:
-
-docker build -t youtube-exporter .
+bashCopydocker build -t youtube-exporter .
 docker run -d -p 8001:8001 --name youtube-exporter youtube-exporter
-
-
-## 📝 Customizing the Dashboard
-
+Customizing the Dashboard
 You can customize the dashboard to fit your needs:
 
-- Add or remove panels
-- Adjust thresholds for status indicators
-- Create additional alerts
-- Modify time ranges
-- Add custom annotations for important events
+Add or remove panels
+Adjust thresholds for status indicators
+Create additional alerts
+Modify time ranges
+Add custom annotations for important events
