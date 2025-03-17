@@ -50,12 +50,40 @@ The exporter runs on port 8001 by default. You can access metrics at http://loca
 Step 2: Configure Prometheus
 Add the following to your prometheus.yml configuration:
 
-## yaml scrape_configs:
-yaml scrape_configs:
+## Prometheus Configuration
+
+### Option 1: Using prometheus.yml
+
+Add the following to your `prometheus.yml` configuration:
+
+```yaml
+scrape_configs:
   - job_name: 'youtube'
     static_configs:
       - targets: ['localhost:8001']
     scrape_interval: 30s
+
+### Option 2: Using File-Based Service Discovery
+[
+  {
+    "targets": [
+      "10.20.48.126:8001"
+    ],
+    "labels": {
+      "job": "youtube_monitor",
+      "service": "streaming"
+    }
+  }
+]
+
+Then reference it in your Prometheus configuration:
+scrape_configs:
+  - job_name: 'youtube'
+    file_sd_configs:
+      - files:
+        - 'youtube_monitor.json'
+    scrape_interval: 30s
+
 
 Restart Prometheus to apply the changes.
 Step 3: Import the Grafana Dashboard
