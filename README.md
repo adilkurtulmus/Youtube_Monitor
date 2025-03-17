@@ -184,9 +184,20 @@ Environment="PYTHONUNBUFFERED=1"
 [Install]
 WantedBy=multi-user.target
 
+
+sudo systemctl enable youtube-exporter
+sudo systemctl start youtube-exporter
+
+
 📌 Docker Installation
+### Docker Kurulumu İçin
+
+
+## 📌 Docker Installation
+
 You can also run the exporter in Docker:
 
+```bash
 docker build -t youtube-exporter .
 docker run -d -p 8001:8001 --name youtube-exporter youtube-exporter
 
