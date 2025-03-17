@@ -409,7 +409,7 @@ def main():
     # Stream settings to monitor
     streams = [
         {
-            'name': 'TEST-1',
+            'name': 'CHANNEL-1',
             'channel_name': 'TEST_Master',
             'channel_id': 'XXXXXXXXXXXXXXXXXXXXXXXXXXX',
             'video_id': 'XXXXXXXXXXX',
@@ -417,7 +417,7 @@ def main():
             'environment': 'Production'
         },
         {
-            'name': 'TEST-2',
+            'name': 'CHANNEL-2',
             'channel_name': 'TEST_Backup',
             'channel_id': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
             'video_id': 'XXXXXXXXXXXX',
