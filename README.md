@@ -189,12 +189,10 @@ sudo systemctl enable youtube-exporter
 sudo systemctl start youtube-exporter
 
 
-```markdown
 ## 📌 Docker Installation
 
 You can also run the exporter in Docker:
 
-```bash
 docker build -t youtube-exporter .
 docker run -d -p 8001:8001 --name youtube-exporter youtube-exporter
 
