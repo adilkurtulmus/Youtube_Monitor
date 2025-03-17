@@ -1,13 +1,5 @@
 YouTube Stream Monitoring Dashboard
-
-![image](https://github.com/user-attachments/assets/3d8577e7-8a9a-4aa1-9754-83bae8319ff7)
-![image](https://github.com/user-attachments/assets/9bad392c-262b-4818-bf1a-6aaac360a02a)
-
-
-
-
 A comprehensive Grafana dashboard for real-time monitoring of YouTube live streams using Prometheus metrics. Track stream status, viewer counts, engagement metrics, and detect outages across multiple YouTube channels simultaneously.
-
 🌟 Features
 
 Live Stream Status Monitoring: Real-time tracking of stream status (LIVE/OFFLINE)
@@ -31,11 +23,11 @@ prometheus_client and requests Python libraries
 Step 1: Set Up the Prometheus YouTube Exporter
 
 Clone this repository:
-git clone https://github.com/yourusername/youtube-stream-monitoring.git
+bashCopygit clone https://github.com/yourusername/youtube-stream-monitoring.git
 cd youtube-stream-monitoring
 
 Install required Python dependencies:
-pip install prometheus_client requests
+bashCopypip install prometheus_client requests
 
 Configure your YouTube API key and channels:
 
@@ -44,13 +36,10 @@ Edit prometheus_youtube_exporter.py and update the streams list with your channe
 
 
 Run the exporter:
-python prometheus_youtube_exporter.py
+bashCopypython prometheus_youtube_exporter.py
 The exporter runs on port 8001 by default. You can access metrics at http://localhost:8001
 
 Step 2: Configure Prometheus
-Add the following to your prometheus.yml configuration:
-
-Prometheus Configuration
 Option 1: Using prometheus.yml
 Add the following to your prometheus.yml configuration:
 yamlCopyscrape_configs:
@@ -79,7 +68,7 @@ yamlCopyscrape_configs:
         - 'youtube_monitor.json'
     scrape_interval: 30s
 Restart Prometheus to apply the changes.
-Import the Grafana Dashboard
+Step 3: Import the Grafana Dashboard
 There are two ways to import the dashboard:
 Option 1: Import via Grafana.com
 
@@ -95,7 +84,7 @@ Click "Upload JSON file" and select youtube_stream_monitoring_dashboard.json fro
 Select your Prometheus data source
 Click "Import"
 
-Configuration
+⚙️ Configuration
 Exporter Configuration
 The exporter is configured through the streams list in prometheus_youtube_exporter.py:
 pythonCopystreams = [
@@ -120,9 +109,9 @@ Stream status is checked every cycle (default: 30 seconds)
 Engagement metrics (views, likes) are checked every 5 cycles
 Channel information (subscribers) is checked every 10 cycles
 
-Available Metrics
+📊 Available Metrics
 Metric NameTypeDescriptionyoutube_stream_statusGaugeStream status (1=LIVE, 0=OFFLINE)youtube_stream_viewersGaugeCurrent live viewer countyoutube_video_viewsGaugeTotal video view countyoutube_video_likesGaugeLike countyoutube_video_commentsGaugeComment countyoutube_channel_subscribersGaugeChannel subscriber countyoutube_engagement_rateGaugeEngagement rate (likes/views %)youtube_stream_check_count_totalCounterTotal number of checks performedyoutube_stream_error_count_totalCounterTotal number of stream errors detectedyoutube_api_errors_totalCounterTotal number of YouTube API errors
-Dashboard Panels
+🔍 Dashboard Panels
 Main Metrics
 
 YouTube Stream Status: Current stream status (LIVE/OFFLINE)
@@ -140,7 +129,7 @@ Engagement Metrics: Views, likes, comments counts
 Subscriber Count: Real-time channel subscriber count
 Engagement Rate: Percentage of viewers who engaged with the stream
 
-Troubleshooting
+🐛 Troubleshooting
 Common Issues
 No Metrics Showing
 
@@ -165,7 +154,7 @@ Missing Stream Status
 Verify the video ID is correct and is a live stream
 Make sure the channel has public statistics enabled
 
-Installation as a System Service
+📌 Installation as a System Service
 For production environments, you may want to run the exporter as a system service:
 Linux (systemd)
 Create a service file at /etc/systemd/system/youtube-exporter.service:
@@ -190,11 +179,11 @@ WantedBy=multi-user.target
 Then enable and start the service:
 bashCopysudo systemctl enable youtube-exporter
 sudo systemctl start youtube-exporter
-Docker Installation
+🐳 Docker Installation
 You can also run the exporter in Docker:
 bashCopydocker build -t youtube-exporter .
 docker run -d -p 8001:8001 --name youtube-exporter youtube-exporter
-Customizing the Dashboard
+🔧 Customizing the Dashboard
 You can customize the dashboard to fit your needs:
 
 Add or remove panels
