@@ -76,7 +76,6 @@ The exporter is configured through the streams list in
 
 prometheus_youtube_exporter.py:
 
-pythonCopystreams = [
     {
         'name': 'Main_Channel',        # A unique name for the stream
         'channel_name': 'Channel Name', # Display name
@@ -86,7 +85,7 @@ pythonCopystreams = [
         'environment': 'Production'    # Environment tag
     },
     # Add more streams as needed
-]
+
 
 Metrics Check Frequency
 You can adjust how often metrics are checked by modifying the interval parameter:
