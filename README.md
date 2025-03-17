@@ -72,7 +72,10 @@ Click "Import"
 
 ⚙️ Configuration
 Exporter Configuration
-The exporter is configured through the streams list in prometheus_youtube_exporter.py:
+The exporter is configured through the streams list in 
+
+prometheus_youtube_exporter.py:
+
 pythonCopystreams = [
     {
         'name': 'Main_Channel',        # A unique name for the stream
@@ -84,6 +87,7 @@ pythonCopystreams = [
     },
     # Add more streams as needed
 ]
+
 Metrics Check Frequency
 You can adjust how often metrics are checked by modifying the interval parameter:
 pythonCopy# Change the interval from 30 seconds to your preferred value (in seconds)
