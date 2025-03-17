@@ -159,6 +159,7 @@ Make sure the channel has public statistics enabled
 📌 Installation as a System Service
 For production environments, you may want to run the exporter as a system service:
 Linux (systemd):
+
 Create a service file at /etc/systemd/system/youtube-exporter.service:
 
 [Unit]
@@ -184,10 +185,12 @@ WantedBy=multi-user.target
 sudo systemctl enable youtube-exporter
 sudo systemctl start youtube-exporter
 
-Docker Installation
+📌 Docker Installation
 You can also run the exporter in Docker:
-bashCopydocker build -t youtube-exporter .
+
+docker build -t youtube-exporter .
 docker run -d -p 8001:8001 --name youtube-exporter youtube-exporter
+
 📝 Customizing the Dashboard
 You can customize the dashboard to fit your needs:
 
