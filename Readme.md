@@ -73,7 +73,7 @@ Create a JSON file (e.g., `youtube_monitor.json`):
 [
   {
     "targets": [
-      "10.20.48.126:8001"
+      "10.10.10.10:8001"
     ],
     "labels": {
       "job": "youtube_monitor",
