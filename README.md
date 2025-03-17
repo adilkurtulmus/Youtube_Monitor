@@ -158,23 +158,32 @@ Make sure the channel has public statistics enabled
 
 📌 Installation as a System Service
 For production environments, you may want to run the exporter as a system service:
-Linux (systemd)
+Linux (systemd):
 Create a service file at /etc/systemd/system/youtube-exporter.service:
-iniCopy[Unit]
-Description=YouTube Prometheus Exporter
+
+[Unit]
+Description=YouTube Stream Monitoring Service
 After=network.target
+Wants=network-online.target
 
 [Service]
-User=prometheus
-ExecStart=/usr/bin/python3 /path/to/prometheus_youtube_exporter.py
+Type=simple
+User=root
+WorkingDirectory=/home/download/youtube_yayin
+ExecStart=/home/download/youtube_yayin/venv/bin/python3 /home/download/youtube_yayin/youtube_monitor.py
 Restart=always
-RestartSec=10
+RestartSec=30
+StandardOutput=append:/var/log/youtube-monitor.log
+StandardError=append:/var/log/youtube-monitor-error.log
+Environment="PYTHONUNBUFFERED=1"
 
 [Install]
 WantedBy=multi-user.target
-Then enable and start the service:
-bashCopysudo systemctl enable youtube-exporter
+
+
+sudo systemctl enable youtube-exporter
 sudo systemctl start youtube-exporter
+
 Docker Installation
 You can also run the exporter in Docker:
 bashCopydocker build -t youtube-exporter .
