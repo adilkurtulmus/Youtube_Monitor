@@ -156,12 +156,15 @@ Missing Stream Status
 Verify the video ID is correct and is a live stream
 Make sure the channel has public statistics enabled
 
-📌 Installation as a System Service
+## 📌 Installation as a System Service
+
 For production environments, you may want to run the exporter as a system service:
-Linux (systemd):
 
-Create a service file at /etc/systemd/system/youtube-exporter.service:
+### Linux (systemd)
 
+Create a service file at `/etc/systemd/system/youtube-exporter.service`:
+
+```ini
 [Unit]
 Description=YouTube Stream Monitoring Service
 After=network.target
@@ -180,10 +183,6 @@ Environment="PYTHONUNBUFFERED=1"
 
 [Install]
 WantedBy=multi-user.target
-
-
-sudo systemctl enable youtube-exporter
-sudo systemctl start youtube-exporter
 
 📌 Docker Installation
 You can also run the exporter in Docker:
